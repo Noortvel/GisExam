@@ -16,7 +16,13 @@ def all_integer_points(polygon: Polygon) -> list[Point]:
         return a
 
     points_set = set()
-
+    """
+    Идем по всем отрезкам P(i), P(i+1) и считаем целочисленные координаты
+    по формуле
+    n = НОД(|x₂ − x₁|, |y₂ − y₁|)
+    dx = (x₂ − x₁) / n
+    dy = (y₂ − y₁) / n
+    """
     for i in range(len(polygon.points)):
         p1 = polygon.points[i]
         p2 = polygon.points[(i + 1) % len(polygon.points)]
